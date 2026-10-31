@@ -266,7 +266,7 @@ const Certificates = () => {
     <section
       id="cards-certificates"
       ref={containerRef}
-      className="bg-white min-h-screen md:min-h-[190vh] relative font-sans overflow-hidden text-slate-900 w-full flex flex-col items-center justify-center py-20 md:py-40 select-none border-t border-slate-200"
+      className="bg-white min-h-screen relative font-sans overflow-hidden text-slate-900 w-full flex flex-col items-center justify-center py-20 md:py-40 select-none border-t border-slate-200"
     >
       {/* Background Title Watermark (Desktop) */}
       <div className="hidden md:flex absolute top-10 left-0 w-full items-start justify-center pointer-events-none z-0">
