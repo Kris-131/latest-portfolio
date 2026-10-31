@@ -1,6 +1,6 @@
 # My Portfolio Website - Overview 🚀
 
-This repository contains the open-source version of my personal portfolio website.  
+This repository contains the open-source version of my personal portfolio website.
 Feel free to explore the code and use it for learning and inspiration.
 
 ---
@@ -10,6 +10,7 @@ Feel free to explore the code and use it for learning and inspiration.
 This project is shared for learning purposes only.
 
 Please do NOT:
+
 - Clone or replicate the full website or design
 - Repost it with minor content changes
 - Use this project for commercial/client work
@@ -25,10 +26,10 @@ Build your own version — don’t just copy.
 
 ## 🛠️ Instructions
 
-I have modified the GSAP Club plugins using trial versions.  
+I have modified the GSAP Club plugins using trial versions.
 ⚠️ Note: Trial plugins cannot be used for production or hosting.
 
-For official GSAP Club plugins, refer here:  
+For official GSAP Club plugins, refer here:
 https://gsap.com/docs/v3/Installation/
 
 ---
@@ -62,4 +63,3 @@ Any usage, extraction, or redistribution of that avatar from my live website is 
 This project is licensed under the Personal Portfolio License (PPL) v1.0.
 
 See the LICENSE file for full details
-
