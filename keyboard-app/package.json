@@ -1,0 +1,27 @@
+{
+  "name": "skill-keyboard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5174",
+    "build": "tsc --noEmit && vite build"
+  },
+  "dependencies": {
+    "@chibi3d/runtime": "0.5.0",
+    "@react-three/fiber": "^9.8.1",
+    "gsap": "^3.12.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "0.185.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "socket.io-client": "^4.8.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1"
+  }
+}

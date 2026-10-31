@@ -1,0 +1,66 @@
+/* Cards section styles — Tailwind v4 WITHOUT preflight, scoped so the main site is untouched */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "./";
+
+/* Dark + lavender palette (remaps Tailwind colours used by the cards) */
+@theme {
+  --color-white: #0b080c;
+  --color-slate-50:  #120e15;
+  --color-slate-100: #181220;
+  --color-slate-200: #2a2133;
+  --color-slate-300: #3d3249;
+  --color-slate-400: #8d8296;
+  --color-slate-500: #a99fb3;
+  --color-slate-600: #c4bccd;
+  --color-slate-700: #d6d0dc;
+  --color-slate-800: #e6e1ea;
+  --color-slate-900: #eae5ec;
+  --color-slate-950: #f7f4f9;
+  --color-blue-50:  #1a1327;
+  --color-blue-100: #241a38;
+  --color-blue-200: #3b2d5c;
+  --color-blue-300: #7f66b8;
+  --color-blue-500: #b393f5;
+  --color-blue-600: #c2a4ff;
+  --color-blue-700: #d4bcff;
+  --color-sky-400:  #fb8dff;
+  --color-sky-500:  #fb8dff;
+  --color-indigo-500: #a68bff;
+  --color-indigo-600: #d9a8ff;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-serif: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* Scoped preflight (only inside .cards-root) */
+@layer base {
+  .cards-root, .cards-root *, .cards-root *::before, .cards-root *::after {
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+  }
+  .cards-root {
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    letter-spacing: -0.015em;
+    user-select: text;
+    -webkit-user-select: text;
+  }
+  .cards-root h1, .cards-root h2, .cards-root h3, .cards-root h4 { font-size: inherit; font-weight: inherit; }
+  .cards-root a { color: inherit; text-decoration: inherit; }
+  .cards-root img, .cards-root svg { display: block; vertical-align: middle; }
+  .cards-root img { max-width: 100%; height: auto; }
+  .cards-root button { font: inherit; color: inherit; background: transparent; cursor: pointer; }
+  .cards-root ul, .cards-root ol { list-style: none; }
+  .cards-root .select-none { user-select: none; -webkit-user-select: none; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+.cards-root .scrollbar-none::-webkit-scrollbar { display: none; }
+.cards-root .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }

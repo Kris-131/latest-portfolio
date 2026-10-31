@@ -1,0 +1,73 @@
+.skill-keyboard {
+  width: 100%;
+  position: relative;
+  height: var(--vh);
+  min-height: 560px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* soft violet glow behind the board, same family as the site's accent glow */
+.skill-keyboard::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: min(1000px, 92vw);
+  height: min(640px, 72%);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    closest-side,
+    rgba(127, 64, 255, 0.24),
+    rgba(194, 164, 255, 0.07) 55%,
+    transparent 100%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skill-keyboard h2 {
+  font-size: 64px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  left: 0;
+  margin: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.skill-keyboard h2 span {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--accentColor);
+  opacity: 0.7;
+}
+
+.skill-keyboard-frame {
+  position: absolute;
+  left: 0;
+  top: 120px;
+  width: 100%;
+  height: calc(100% - 120px);
+  border: 0;
+  background: transparent;
+  color-scheme: light dark;
+}
+
+@media screen and (max-width: 900px) {
+  .skill-keyboard h2 {
+    font-size: 40px;
+    top: 24px;
+  }
+  .skill-keyboard-frame {
+    top: 100px;
+    height: calc(100% - 100px);
+  }
+}

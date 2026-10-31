@@ -1,0 +1,141 @@
+/* Line menu: minimal lines on the left that expand into labels on hover. */
+.line-menu {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  /* generous invisible hit-area so hovering the lines is easy */
+  padding: 22px 70px 22px 22px;
+  --lm-base: 14px;   /* resting line length */
+  --lm-open: 30px;   /* line length once the menu is hovered */
+  --lm-boost: 30px;  /* extra length for the row under the pointer */
+  --lm-row: 24px;    /* row height */
+}
+.line-menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.line-menu li {
+  --p: 0;
+  height: var(--lm-row);
+  display: flex;
+  align-items: center;
+}
+.line-menu a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 14px;
+  color: #eae5ec;
+  text-decoration: none;
+  outline: none;
+}
+.line-menu a:hover {
+  color: #fff;
+}
+
+.lm-line {
+  display: block;
+  flex: none;
+  height: 2px;
+  width: calc(var(--lm-base) + var(--lm-extra, 0px));
+  border-radius: 2px;
+  background: rgba(234, 229, 236, 0.38);
+  transition: width 0.45s cubic-bezier(0.2, 0.9, 0.2, 1),
+    background 0.3s, box-shadow 0.3s;
+}
+.line-menu li.is-active .lm-line {
+  --lm-extra: 10px;
+  background: var(--accentColor);
+  box-shadow: 0 0 10px rgba(194, 164, 255, 0.75);
+}
+
+.lm-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.2, 0.9, 0.2, 1),
+    color 0.3s;
+}
+
+/* expanded: hover, keyboard focus, or touch toggle */
+.line-menu:hover .lm-line,
+.line-menu:has(a:focus-visible) .lm-line,
+.line-menu.is-expanded .lm-line {
+  --lm-extra: calc(
+    var(--lm-open) - var(--lm-base) + var(--p) * var(--lm-boost)
+  );
+  background: rgba(234, 229, 236, calc(0.45 + var(--p) * 0.55));
+  transition: width 0.12s linear, background 0.2s;
+}
+.line-menu:hover li.is-active .lm-line,
+.line-menu:has(a:focus-visible) li.is-active .lm-line,
+.line-menu.is-expanded li.is-active .lm-line {
+  --lm-extra: calc(
+    var(--lm-open) - var(--lm-base) + var(--p) * var(--lm-boost) + 8px
+  );
+  background: var(--accentColor);
+}
+.line-menu:hover li:hover .lm-line,
+.line-menu li a:focus-visible .lm-line {
+  background: var(--accentColor);
+  box-shadow: 0 0 12px rgba(194, 164, 255, 0.8);
+}
+
+.line-menu:hover .lm-label,
+.line-menu:has(a:focus-visible) .lm-label,
+.line-menu.is-expanded .lm-label {
+  opacity: calc(0.4 + var(--p) * 0.6);
+  transform: translateX(calc(var(--p) * 8px));
+  transition: opacity 0.2s ease calc(var(--i) * 0.025s),
+    transform 0.25s cubic-bezier(0.2, 0.9, 0.2, 1) calc(var(--i) * 0.025s),
+    color 0.3s;
+}
+.line-menu li.is-active .lm-label {
+  color: var(--accentColor);
+}
+.line-menu li:hover .lm-label {
+  color: #fff;
+}
+.line-menu li.is-active:hover .lm-label {
+  color: var(--accentColor);
+}
+
+@media only screen and (max-width: 768px) {
+  .line-menu {
+    padding: 18px 40px 18px 12px;
+    --lm-base: 10px;
+    --lm-open: 22px;
+    --lm-boost: 0px;
+    --lm-row: 22px;
+  }
+  .lm-label {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+  .line-menu.is-expanded {
+    background: linear-gradient(
+      90deg,
+      rgba(11, 8, 12, 0.85),
+      rgba(11, 8, 12, 0)
+    );
+    border-radius: 0 18px 18px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lm-line,
+  .lm-label {
+    transition-duration: 0.01s !important;
+    transition-delay: 0s !important;
+  }
+}
